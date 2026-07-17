@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool checkZeroOnes(string s) {
+        int zerocount=0;
+        int onecount=0;
+        int one=0,zero=0;
+        for(char ch:s){
+            if(ch=='1'){
+                one++;
+                zero=0;
+            }else{
+                zero++;
+                one=0;
+            }
+            zerocount=max(zerocount,zero);
+            onecount=max(onecount,one);
+        }   
+        return onecount>zerocount;  
+    }
+};
