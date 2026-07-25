@@ -1,0 +1,24 @@
+class Solution {
+public:
+    string reverseByType(string s) {
+        string letters = "";
+        string special = "";
+        for (char ch : s) {
+            if (islower(ch))
+                letters += ch;
+            else
+                special += ch;
+        }
+        reverse(letters.begin(), letters.end());
+        reverse(special.begin(), special.end());
+
+        int i = 0, j = 0;
+        for (int k = 0; k < s.size(); k++) {
+            if (islower(s[k]))
+                s[k] = letters[i++];
+            else
+                s[k] = special[j++];
+        }
+        return s;   
+    }
+};
