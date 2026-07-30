@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int maxFreqSum(string s) {
+        unordered_map<char,int> freq;
+        int v=0,c=0,max1=0,sum=0;
+        for(auto a:s){
+            freq[a]++;
+        }
+        for(auto x:freq){
+            char ch=x.first;
+            int count=x.second;
+        if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'){
+            v=max(v,count);
+        }
+        else{
+            c=max(c,count);
+        }
+        }
+        return v+c;
+    }
+};
